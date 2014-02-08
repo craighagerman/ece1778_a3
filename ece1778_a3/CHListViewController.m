@@ -108,6 +108,11 @@
     
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
+    
+    
+    //NSString *filepath  = [NSString stringWithFormat:@"/Volumes/Cabinet/craig/Library/Application Support/iPhone Simulator/7.0.3/Applications/53D7E0D2-7F02-42E3-83F4-7D869494546E/Documents/imageWhatever1"];
+    //UIImage *image = [UIImage imageWithContentsOfFile:filepath];
+    
     //UIImage *image = [UIImage imageNamed:@"star"];
     
     UIImage *image = [UIImage imageWithContentsOfFile:record.imagePath];

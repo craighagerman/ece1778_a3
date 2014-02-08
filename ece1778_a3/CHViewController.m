@@ -12,8 +12,6 @@
 
 @interface CHViewController ()
 
-@property (nonatomic, copy) NSString *imageFilePath;
-
 @end
 
 @implementation CHViewController
@@ -47,14 +45,25 @@
      */
     Record * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Record"
                                                       inManagedObjectContext:self.managedObjectContext];
-    
 
-    //newEntry.timestamp = [[NSDate date] timeIntervalSince1970];
+    newEntry.timestamp = [[NSDate date] timeIntervalSince1970];
+    newEntry.latitude = @"0.00.123";
+    newEntry.longitude = @"99.00.123";
     
-    newEntry.latitude = @"0.123.456";
-    newEntry.longitude = @"99.45.67";
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"cavalier0"]];
+    NSData *imageData = UIImagePNGRepresentation(image); // or use UIImageJPEGRepresentation if it's a jpeg image
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *fileName = @"dog";
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
     
-    //newEntry.imagePath = self.imageFilePath;
+    newEntry.imagePath = filePath;
+    
+    NSError *writeError = nil;
+    
+    if (![imageData writeToFile:filePath options:NSDataWritingAtomic error:&writeError]) {
+        NSLog(@"Failed to write file: %@", writeError);
+    }
+    
 
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
@@ -67,19 +76,19 @@
 
 
 
-/*
+
 
 //-(void)saveImageToDisk:(UIImage *) image
 -(void)saveImageToDisk
 {
-    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"cavalier5"]];
-
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"cavalier0"]];
     NSData *imageData = UIImagePNGRepresentation(image); // or use UIImageJPEGRepresentation if it's a jpeg image
-    
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *fileName = @"imageWhatever1";
+    NSString *fileName = @"dog";
     NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
-    self.imageFilePath = filePath;
+
+    
+    
     NSError *writeError = nil;
     
     if (![imageData writeToFile:filePath options:NSDataWritingAtomic error:&writeError]) {
@@ -97,7 +106,7 @@
 }
 
 
-*/
+
 
 
 

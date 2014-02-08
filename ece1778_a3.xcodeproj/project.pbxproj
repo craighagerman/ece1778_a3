@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		449CC12618A6AE40006D88DB /* cavalier0.png in Resources */ = {isa = PBXBuildFile; fileRef = 449CC12518A6AE40006D88DB /* cavalier0.png */; };
 		449EC26218A5C22C0054BE04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449EC26118A5C22C0054BE04 /* Foundation.framework */; };
 		449EC26418A5C22C0054BE04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449EC26318A5C22C0054BE04 /* CoreGraphics.framework */; };
 		449EC26618A5C22C0054BE04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449EC26518A5C22C0054BE04 /* UIKit.framework */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		449CC12518A6AE40006D88DB /* cavalier0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cavalier0.png; sourceTree = "<group>"; };
 		449EC25E18A5C22C0054BE04 /* ece1778_a3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ece1778_a3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		449EC26118A5C22C0054BE04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		449EC26318A5C22C0054BE04 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +138,7 @@
 		449EC26718A5C22C0054BE04 /* ece1778_a3 */ = {
 			isa = PBXGroup;
 			children = (
+				449CC12518A6AE40006D88DB /* cavalier0.png */,
 				44F87B3418A6952200CD41C1 /* cavalier5.png */,
 				449EC29918A5DFDF0054BE04 /* star.png */,
 				449EC29A18A5DFDF0054BE04 /* star2.png */,
@@ -264,6 +267,7 @@
 				449EC29B18A5DFDF0054BE04 /* star.png in Resources */,
 				44F87B3518A6952200CD41C1 /* cavalier5.png in Resources */,
 				449EC26C18A5C22C0054BE04 /* InfoPlist.strings in Resources */,
+				449CC12618A6AE40006D88DB /* cavalier0.png in Resources */,
 				449EC27518A5C22C0054BE04 /* Main.storyboard in Resources */,
 				449EC29C18A5DFDF0054BE04 /* star2.png in Resources */,
 			);
