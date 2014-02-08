@@ -89,8 +89,6 @@
 
 
 
- 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //return [self.dwarves count];
@@ -103,78 +101,41 @@
     static NSString *cellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellIdentifier];
     Record * record = [self.fetchedRecordsArray objectAtIndex:indexPath.row];
-
-    
     
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    
-    
-    
-    //NSString *filepath  = [NSString stringWithFormat:@"/Volumes/Cabinet/craig/Library/Application Support/iPhone Simulator/7.0.3/Applications/53D7E0D2-7F02-42E3-83F4-7D869494546E/Documents/imageWhatever1"];
-    //UIImage *image = [UIImage imageWithContentsOfFile:filepath];
-    
-    //UIImage *image = [UIImage imageNamed:@"star"];
-    
     UIImage *image = [UIImage imageWithContentsOfFile:record.imagePath];
-    
-    
-    
+
     cell.imageView.image = image;
-    //cell.textLabel.text = self.dwarves[indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@,  %@",record.latitude,record.longitude];
-    
     return cell;
 }
 
 
-
-
-    
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CHPhotoRecordDetailViewController* detailController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewControllerIdentifier"];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     // assign the object tapped row to 'detailController.selectedRecord'
+    
+    CHPhotoRecordDetailViewController* detailController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewControllerIdentifier"];
     detailController.selectedRecord = [self.fetchedRecordsArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:detailController animated:YES];
-    
-    //NSString*rowValue=self.dwarves[indexPath.row];
-    //NSString *message = [[NSString alloc] initWithFormat:@"You selected %@", rowValue];
-    /*
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Row Selected!"
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Yes I Did"
-                                          otherButtonTitles:nil];
-    [alert show];
-     */
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
-
-
-
-    
-    
     
 
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
 
 
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.managedObjectContext deleteObject:[self.fetchedRecordsArray objectAtIndex:indexPath.row]];
@@ -185,24 +146,6 @@
         CHAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
         self.fetchedRecordsArray = [appDelegate getAllRecords];
         [tableView endUpdates];
-        
-        
-        /*
-        NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [self.managedObjectContext deleteObject:managedObject];
-        [self.managedObjectContext save:nil];
-        */
-        
-        /*
-        ////////////////////////////////
-        NSLog(@"Deleting recent entries");
-        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-        NSArray *ra = [appDelegate getAllRecords];
-        Record *record = [ra objectAtIndex:row];
-        [self.managedObjectContext deleteObject:record];
-        [self.managedObjectContext save:nil];
-        */
-
         
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {

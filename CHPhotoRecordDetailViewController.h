@@ -11,6 +11,13 @@
 
 @interface CHPhotoRecordDetailViewController : UIViewController
 
+@property (retain, nonatomic) IBOutlet UIImageView *myImageView;
+@property (retain, nonatomic) IBOutlet UILabel *myLabel;
 @property (nonatomic, strong)Record *selectedRecord ;
+
+
+-(void)updateImage:(UIImage *)image withLabel:(NSString *)str;
+
+
 
 @end

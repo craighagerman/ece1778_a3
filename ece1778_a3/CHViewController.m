@@ -77,7 +77,7 @@
 
 
 
-
+/*
 //-(void)saveImageToDisk:(UIImage *) image
 -(void)saveImageToDisk
 {
@@ -105,7 +105,7 @@
     NSLog(@"filepath:  %@", filePath);
 }
 
-
+*/
 
 
 

@@ -78,8 +78,31 @@
                     <view key="view" contentMode="scaleToFill" id="bGl-mO-BLx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5ag-p9-Hk9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GSP Coordinates:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7H-rW-Cbm">
+                                <rect key="frame" x="20" y="102" width="139" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5ag-p9-Hk9" secondAttribute="trailing" id="cKA-2Y-qqw"/>
+                            <constraint firstItem="5ag-p9-Hk9" firstAttribute="leading" secondItem="bGl-mO-BLx" secondAttribute="leading" id="ch0-i5-CMm"/>
+                            <constraint firstItem="5ag-p9-Hk9" firstAttribute="top" secondItem="bGl-mO-BLx" secondAttribute="top" id="eQX-v2-l0t"/>
+                            <constraint firstItem="Zls-zx-bpK" firstAttribute="top" secondItem="5ag-p9-Hk9" secondAttribute="bottom" id="hnF-yL-ws7"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myImageView" destination="5ag-p9-Hk9" id="89a-eU-X3E"/>
+                        <outlet property="myLabel" destination="t7H-rW-Cbm" id="rht-8a-LY4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Kv-m3-TBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

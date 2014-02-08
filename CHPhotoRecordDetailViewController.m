@@ -26,8 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-     //[self initialSetup];
+
+    [self initialSetup];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,18 +39,17 @@
 
 - (void)initialSetup
 {
-    /*  GET/Set entries from Records
-    //  1
-    self.firstNameTextfield.text = self.selectedRecord.firstName;
-    self.lastNameTextfield.text = self.selectedRecord.lastName;
-    self.cityTextfield.text = self.selectedRecord.city;
-    
-    //  2
-    NSArray* phoneNumbers = [self.selectedRecord.phoneNumbers allObjects];
-    self.number1Textfield.text = ((PhoneNumber*)[phoneNumbers objectAtIndex:0]).number;
-    self.number2Textfield.text = ((PhoneNumber*)[phoneNumbers objectAtIndex:1]).number;
-     */
+    self.myImageView.image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@",self.selectedRecord.imagePath]];
+    self.myLabel.text = [NSString stringWithFormat:@"%@,  %@",self.selectedRecord.latitude, self.selectedRecord.longitude];
 }
+
+
+-(void)updateImage:(UIImage *)image withLabel:(NSString *) str
+{
+    self.myImageView.image = image;
+    self.myLabel.text = str;
+}
+
 
 
 @end
