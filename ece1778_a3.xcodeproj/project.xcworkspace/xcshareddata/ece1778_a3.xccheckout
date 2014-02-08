@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CC46A015-AAE2-4DC1-924F-02CDF29EDB9C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ece1778_a3</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>04089DD0-0424-4F2F-9FFC-5EC6B98E5E66</key>
+		<string>https://github.com/craighagerman/ece1778_project.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ece1778_a3/ece1778_a3.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>04089DD0-0424-4F2F-9FFC-5EC6B98E5E66</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/craighagerman/ece1778_project.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>04089DD0-0424-4F2F-9FFC-5EC6B98E5E66</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>04089DD0-0424-4F2F-9FFC-5EC6B98E5E66</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ece1778_project</string>
+		</dict>
+	</array>
+</dict>
+</plist>
