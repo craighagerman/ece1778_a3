@@ -15,6 +15,6 @@
 @property (nonatomic, retain) NSString * latitude;
 @property (nonatomic, retain) NSString * longitude;
 @property (nonatomic, retain) NSString * imagePath;
-@property (nonatomic, retain) NSNumber * id;
+@property double timestamp;
 
 @end

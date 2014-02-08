@@ -15,6 +15,7 @@
 
 //@property (copy, nonatomic) NSArray *dwarves;
 @property (nonatomic,strong)NSArray* fetchedRecordsArray;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -42,9 +43,17 @@
     
     
     CHAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
     
     // Fetching Records and saving it in "fetchedRecordsArray" object
     self.fetchedRecordsArray = [appDelegate getAllRecords];
+    
+    /*
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit"
+                                                                              style:self.editButtonItem.style
+                                                                             target:self
+                                                                             action:@selector(editButtonPressed)];
+    */
     [self.tableView reloadData];
     
     /*
@@ -59,6 +68,7 @@
     UITableView *tableView = (id)[self.view viewWithTag:1];
     UIEdgeInsets contentInset = tableView.contentInset;
     contentInset.top = 20;
+ 
     
     
 }
@@ -97,7 +107,13 @@
     
     
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    UIImage *image = [UIImage imageNamed:@"star"];
+    
+    //UIImage *image = [UIImage imageNamed:@"star"];
+    
+    UIImage *image = [UIImage imageWithContentsOfFile:record.imagePath];
+    
+    
+    
     cell.imageView.image = image;
     //cell.textLabel.text = self.dwarves[indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@,  %@",record.latitude,record.longitude];
@@ -137,28 +153,65 @@
     
     
     
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+        [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.managedObjectContext deleteObject:[self.fetchedRecordsArray objectAtIndex:indexPath.row]];
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        CHAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        self.fetchedRecordsArray = [appDelegate getAllRecords];
+        [tableView endUpdates];
+        
+        
+        /*
+        NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:managedObject];
+        [self.managedObjectContext save:nil];
+        */
+        
+        /*
+        ////////////////////////////////
+        NSLog(@"Deleting recent entries");
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        NSArray *ra = [appDelegate getAllRecords];
+        Record *record = [ra objectAtIndex:row];
+        [self.managedObjectContext deleteObject:record];
+        [self.managedObjectContext save:nil];
+        */
+
+        
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
+
+
+
+
+
+
+
 
 /*
 // Override to support rearranging the table view.

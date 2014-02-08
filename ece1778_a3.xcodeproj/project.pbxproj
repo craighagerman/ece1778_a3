@@ -28,7 +28,7 @@
 		449EC2A118A5F4080054BE04 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 449EC29F18A5F4080054BE04 /* Model.xcdatamodeld */; };
 		44F87B2B18A5F82000CD41C1 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F87B2A18A5F82000CD41C1 /* Record.m */; };
 		44F87B3118A5FF1100CD41C1 /* CHPhotoRecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F87B3018A5FF1100CD41C1 /* CHPhotoRecordDetailViewController.m */; };
-		44F87B3318A6013400CD41C1 /* cavalier5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44F87B3218A6013400CD41C1 /* cavalier5.jpg */; };
+		44F87B3518A6952200CD41C1 /* cavalier5.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F87B3418A6952200CD41C1 /* cavalier5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +71,7 @@
 		44F87B2A18A5F82000CD41C1 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
 		44F87B2F18A5FF1100CD41C1 /* CHPhotoRecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHPhotoRecordDetailViewController.h; path = ../CHPhotoRecordDetailViewController.h; sourceTree = "<group>"; };
 		44F87B3018A5FF1100CD41C1 /* CHPhotoRecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHPhotoRecordDetailViewController.m; path = ../CHPhotoRecordDetailViewController.m; sourceTree = "<group>"; };
-		44F87B3218A6013400CD41C1 /* cavalier5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cavalier5.jpg; path = ../../../../Desktop/dogs/cavalier5.jpg; sourceTree = "<group>"; };
+		44F87B3418A6952200CD41C1 /* cavalier5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cavalier5.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,7 @@
 		449EC26718A5C22C0054BE04 /* ece1778_a3 */ = {
 			isa = PBXGroup;
 			children = (
-				44F87B3218A6013400CD41C1 /* cavalier5.jpg */,
+				44F87B3418A6952200CD41C1 /* cavalier5.png */,
 				449EC29918A5DFDF0054BE04 /* star.png */,
 				449EC29A18A5DFDF0054BE04 /* star2.png */,
 				449EC27018A5C22C0054BE04 /* CHAppDelegate.h */,
@@ -262,7 +262,7 @@
 			files = (
 				449EC27A18A5C22C0054BE04 /* Images.xcassets in Resources */,
 				449EC29B18A5DFDF0054BE04 /* star.png in Resources */,
-				44F87B3318A6013400CD41C1 /* cavalier5.jpg in Resources */,
+				44F87B3518A6952200CD41C1 /* cavalier5.png in Resources */,
 				449EC26C18A5C22C0054BE04 /* InfoPlist.strings in Resources */,
 				449EC27518A5C22C0054BE04 /* Main.storyboard in Resources */,
 				449EC29C18A5DFDF0054BE04 /* star2.png in Resources */,

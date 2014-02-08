@@ -14,6 +14,6 @@
 @dynamic latitude;
 @dynamic longitude;
 @dynamic imagePath;
-@dynamic id;
+@dynamic timestamp;
 
 @end
