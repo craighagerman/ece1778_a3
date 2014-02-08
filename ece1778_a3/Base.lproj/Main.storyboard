@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="666" y="-101"/>
+            <point key="canvasLocation" x="651" y="165"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="NBK-FV-K2p">
@@ -65,7 +65,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfF-6v-lRy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165" y="-101"/>
+            <point key="canvasLocation" x="1112" y="-326"/>
+        </scene>
+        <!--Photo Record Detail View Controller-->
+        <scene sceneID="3eK-QY-kP0">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewControllerIdentifier" id="Zvi-SB-Fg7" customClass="CHPhotoRecordDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TWX-ae-AaP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zls-zx-bpK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bGl-mO-BLx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Kv-m3-TBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1527" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Dp-TQ-bdk">

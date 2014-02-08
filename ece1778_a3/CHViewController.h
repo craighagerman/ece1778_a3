@@ -12,4 +12,6 @@
 
 - (IBAction)pushTable:(id)sender;
 
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
 @end

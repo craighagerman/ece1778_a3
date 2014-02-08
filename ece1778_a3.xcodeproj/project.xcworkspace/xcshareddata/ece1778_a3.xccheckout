@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>CC46A015-AAE2-4DC1-924F-02CDF29EDB9C</string>
+	<string>3CC156D6-4251-448F-B924-9A7193CB8C12</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ece1778_a3</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>04089DD0-0424-4F2F-9FFC-5EC6B98E5E66</key>
-		<string>https://github.com/craighagerman/ece1778_project.git</string>
+		<key>4AF21802-E8DF-4634-9559-5388EC5AF5FF</key>
+		<string>https://github.com/craighagerman/ece1778_a3.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ece1778_a3/ece1778_a3.xcodeproj/project.xcworkspace</string>
+	<string>ece1778_a3.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>04089DD0-0424-4F2F-9FFC-5EC6B98E5E66</key>
-		<string>../../..</string>
+		<key>4AF21802-E8DF-4634-9559-5388EC5AF5FF</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/craighagerman/ece1778_project.git</string>
+	<string>https://github.com/craighagerman/ece1778_a3.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>04089DD0-0424-4F2F-9FFC-5EC6B98E5E66</string>
+	<string>4AF21802-E8DF-4634-9559-5388EC5AF5FF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>04089DD0-0424-4F2F-9FFC-5EC6B98E5E66</string>
+			<string>4AF21802-E8DF-4634-9559-5388EC5AF5FF</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ece1778_project</string>
+			<string>ece1778_a3</string>
 		</dict>
 	</array>
 </dict>
