@@ -24,6 +24,8 @@
 		449EC29818A5C86F0054BE04 /* CHListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 449EC29718A5C86F0054BE04 /* CHListViewController.m */; };
 		449EC29B18A5DFDF0054BE04 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 449EC29918A5DFDF0054BE04 /* star.png */; };
 		449EC29C18A5DFDF0054BE04 /* star2.png in Resources */ = {isa = PBXBuildFile; fileRef = 449EC29A18A5DFDF0054BE04 /* star2.png */; };
+		449EC29E18A5F3DB0054BE04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449EC29D18A5F3DB0054BE04 /* CoreData.framework */; };
+		449EC2A118A5F4080054BE04 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 449EC29F18A5F4080054BE04 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		449EC29718A5C86F0054BE04 /* CHListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHListViewController.m; sourceTree = "<group>"; };
 		449EC29918A5DFDF0054BE04 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		449EC29A18A5DFDF0054BE04 /* star2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star2.png; sourceTree = "<group>"; };
+		449EC29D18A5F3DB0054BE04 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		449EC2A018A5F4080054BE04 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				449EC29E18A5F3DB0054BE04 /* CoreData.framework in Frameworks */,
 				449EC26418A5C22C0054BE04 /* CoreGraphics.framework in Frameworks */,
 				449EC26618A5C22C0054BE04 /* UIKit.framework in Frameworks */,
 				449EC26218A5C22C0054BE04 /* Foundation.framework in Frameworks */,
@@ -89,6 +94,7 @@
 		449EC25518A5C22C0054BE04 = {
 			isa = PBXGroup;
 			children = (
+				449EC29F18A5F4080054BE04 /* Model.xcdatamodeld */,
 				449EC26718A5C22C0054BE04 /* ece1778_a3 */,
 				449EC28618A5C22C0054BE04 /* ece1778_a3Tests */,
 				449EC26018A5C22C0054BE04 /* Frameworks */,
@@ -108,6 +114,7 @@
 		449EC26018A5C22C0054BE04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				449EC29D18A5F3DB0054BE04 /* CoreData.framework */,
 				449EC26118A5C22C0054BE04 /* Foundation.framework */,
 				449EC26318A5C22C0054BE04 /* CoreGraphics.framework */,
 				449EC26518A5C22C0054BE04 /* UIKit.framework */,
@@ -265,6 +272,7 @@
 			files = (
 				449EC26E18A5C22C0054BE04 /* main.m in Sources */,
 				449EC27218A5C22C0054BE04 /* CHAppDelegate.m in Sources */,
+				449EC2A118A5F4080054BE04 /* Model.xcdatamodeld in Sources */,
 				449EC27818A5C22C0054BE04 /* CHViewController.m in Sources */,
 				449EC29818A5C86F0054BE04 /* CHListViewController.m in Sources */,
 			);
@@ -485,6 +493,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		449EC29F18A5F4080054BE04 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				449EC2A018A5F4080054BE04 /* Model.xcdatamodel */,
+			);
+			currentVersion = 449EC2A018A5F4080054BE04 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 449EC25618A5C22C0054BE04 /* Project object */;
 }
