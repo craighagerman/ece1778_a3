@@ -8,6 +8,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <CoreMotion/CoreMotion.h>
+#import <MapKit/MapKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <UIKit/UIKit.h>
 
@@ -15,6 +16,7 @@
 @interface CHViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *gpsLabel;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 -(IBAction)pushTable:(id)sender;
 -(IBAction)shakeDetected:(id)sender;
 

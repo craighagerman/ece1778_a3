@@ -7,8 +7,9 @@
 //
 
 #import "CHViewController.h"
-#import "Record.h"
 #import "CHAppDelegate.h"
+#import "CHPlace.h"
+#import "Record.h"
 
 @interface CHViewController ()
 
@@ -27,6 +28,7 @@
 
 #pragma mark - Lifecycle
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,8 +40,9 @@
     _locationManager.delegate = self;
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [_locationManager startUpdatingLocation];
-    //_mapView.showsUserLocation = YES;
+    _mapView.showsUserLocation = YES;
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -91,8 +94,6 @@
 
 
 
-
-
 #pragma mark ---------------------------------------------------------------------------------------------------------------------------------------
 #pragma mark Geo-Location Methods
 
@@ -103,24 +104,11 @@
     self.longitudeString = [NSString stringWithFormat:@"%g\u00B0", newLocation.coordinate.longitude];
     self.gpsLabel.text = [NSString stringWithFormat:@"%@N  %@W", self.lattitudeString, self.longitudeString];
     
-    /*
-     NOTE:
-     GPS can be decimal, or degree-minutes-seconds
-     convert with:
-     Decimal Degrees = Degrees + minutes/60 + seconds/3600
-     
-     */
-    
-    
-
-    /*
-    Place *start = [[Place alloc] init]; start.coordinate = newLocation.coordinate; start.title = @"Start Point";
+    CHPlace *start = [[CHPlace alloc] init]; start.coordinate = newLocation.coordinate; start.title = @"Start Point";
     start.subtitle = @"This is where we started!";
     //[_mapView addAnnotation:start];
     MKCoordinateRegion region;
     region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 100, 100); [_mapView setRegion:region animated:YES];
-    */
-    
     
     if (newLocation.verticalAccuracy < 0 || newLocation.horizontalAccuracy < 0) { // invalid accuracy
     } return;
@@ -128,9 +116,6 @@
     if (newLocation.horizontalAccuracy > 100 || newLocation.verticalAccuracy > 50) {
         // accuracy radius is so large, we don't want to use it
     } return;
-    
-    
-    
 }
 
 
@@ -150,13 +135,6 @@
 
 
 
-
-
-
-
-
-
-
 #pragma mark ---------------------------------------------------------------------------------------------------------------------------------------
 #pragma mark shake functions
 
@@ -164,6 +142,7 @@
 {
     if (event.type == UIEventTypeMotion && event.subtype == UIEventSubtypeMotionShake) {
         NSLog(@"Shaking began ....");
+        self.gpsLabel.text = [NSString stringWithFormat:@"Shaking began!"];
     }
 }
 
@@ -171,13 +150,11 @@
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     if (event.type == UIEventTypeMotion && event.subtype == UIEventSubtypeMotionShake) {
-    	//[[NSNotificationCenter defaultCenter] postNotificationName:@"DeviceShaken" object:self];
-         NSLog(@"Shaking ended");
+         //NSLog(@"Shaking ended");
+        self.gpsLabel.text = [NSString stringWithFormat:@"%@N  %@W", self.lattitudeString, self.longitudeString];
         [self shakeDetected:nil];
     }
 }
-
-
 
 
 
@@ -237,6 +214,12 @@
 
 -(void)saveImageToDisk:(UIImage *) image
 {
+    
+    CGFloat height = 640.0f;
+    CGFloat width = (height / image.size.height) * image.size.width;
+    UIImage *rotatedImage = [image resizedImage:CGSizeMake(width, height) interpolationQuality:kCGInterpolationDefault];
+    
+    
     NSData *imageData = UIImagePNGRepresentation(image); // or use UIImageJPEGRepresentation if it's a jpeg image
     NSError *writeError = nil;
     
