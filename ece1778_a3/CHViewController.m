@@ -106,8 +106,8 @@
     self.longitudeString = [NSString stringWithFormat:@"%g\u00B0", newLocation.coordinate.longitude];
     self.gpsLabel.text = [NSString stringWithFormat:@"%@N  %@W", self.lattitudeString, self.longitudeString];
     
-    CHPlace *start = [[CHPlace alloc] init]; start.coordinate = newLocation.coordinate; start.title = @"Start Point";
-    start.subtitle = @"This is where we started!";
+    CHPlace *start = [[CHPlace alloc] init]; start.coordinate = newLocation.coordinate; start.title = @"Here";
+    start.subtitle = @"now";
     //[_mapView addAnnotation:start];
     MKCoordinateRegion region;
     region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 100, 100); [_mapView setRegion:region animated:YES];
@@ -130,7 +130,7 @@
                           delegate:nil
                           cancelButtonTitle:@"Okay" otherButtonTitles:nil
                           ];
-    //[alert show];
+    //[alert show];         // used for development, debugging
 }
 
 
@@ -143,7 +143,7 @@
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     if (event.type == UIEventTypeMotion && event.subtype == UIEventSubtypeMotionShake) {
-        NSLog(@"Shaking began ....");
+        //NSLog(@"Shaking began ....");        // used for development, debugging
         self.gpsLabel.text = [NSString stringWithFormat:@"Shaking began!"];
     }
 }
@@ -152,7 +152,7 @@
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     if (event.type == UIEventTypeMotion && event.subtype == UIEventSubtypeMotionShake) {
-         //NSLog(@"Shaking ended");
+         //NSLog(@"Shaking ended");      // used for development, debugging
         self.gpsLabel.text = [NSString stringWithFormat:@"%@N  %@W", self.lattitudeString, self.longitudeString];
         [self shakeDetected:nil];
     }
@@ -204,7 +204,7 @@
                                        delegate:nil
                               cancelButtonTitle:@"OK"
                               otherButtonTitles:nil];
-    [alert show];
+    //[alert show];     // used for development, debugging
      }
  }
  
@@ -235,14 +235,21 @@
     }
      */
     if ([self checkFileExists:self.filePath]){
-        NSLog(@"File exisits");
+        //NSLog(@"File exisits"); // used for development, debugging
     }
     else {
-        NSLog(@"Apparently the file doesn't exisit!");
+        //NSLog(@"Apparently the file doesn't exisit!");  // used for development, debugging
     }
 }
 
-
+#pragma mark - scaleAndRotateImage (copied code)
+/*  *****************************************************************************************************************
+    NOTE:    Although the orientation for this app is only allowed to be portrait, the imagePickerController camera
+    has a default orientation of landscape. This means that when using imagePickerController to take a photo
+    programmatically it will be taken in portrait but identified as landscape. This makes (1) the display orientation
+    wrong and (2) causes the image to be stretched and squashed. The code below is copied from the web discussion
+    listed and serves to return a resized, rotated copy of an image to correct for this behavior.
+*****************************************************************************************************************  */
 
 // Code from: http://discussions.apple.com/thread.jspa?messageID=7949889
 - (UIImage *)scaleAndRotateImage:(UIImage *)image {
