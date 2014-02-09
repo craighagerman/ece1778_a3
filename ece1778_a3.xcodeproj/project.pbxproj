@@ -13,6 +13,7 @@
 		449CC12D18A764D9006D88DB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449CC12C18A764D9006D88DB /* CoreLocation.framework */; };
 		449CC12F18A76E71006D88DB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449CC12E18A76E71006D88DB /* MapKit.framework */; };
 		449CC13218A76ED6006D88DB /* CHPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 449CC13118A76ED6006D88DB /* CHPlace.m */; };
+		449CC13418A7E620006D88DB /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 449CC13318A7E620006D88DB /* icon.png */; };
 		449EC26218A5C22C0054BE04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449EC26118A5C22C0054BE04 /* Foundation.framework */; };
 		449EC26418A5C22C0054BE04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449EC26318A5C22C0054BE04 /* CoreGraphics.framework */; };
 		449EC26618A5C22C0054BE04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449EC26518A5C22C0054BE04 /* UIKit.framework */; };
@@ -55,6 +56,7 @@
 		449CC12E18A76E71006D88DB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		449CC13018A76ED6006D88DB /* CHPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHPlace.h; sourceTree = "<group>"; };
 		449CC13118A76ED6006D88DB /* CHPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHPlace.m; sourceTree = "<group>"; };
+		449CC13318A7E620006D88DB /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		449EC25E18A5C22C0054BE04 /* ece1778_a3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ece1778_a3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		449EC26118A5C22C0054BE04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		449EC26318A5C22C0054BE04 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -157,6 +159,7 @@
 		449EC26718A5C22C0054BE04 /* ece1778_a3 */ = {
 			isa = PBXGroup;
 			children = (
+				449CC13318A7E620006D88DB /* icon.png */,
 				449CC12518A6AE40006D88DB /* cavalier0.png */,
 				44F87B3418A6952200CD41C1 /* cavalier5.png */,
 				449EC29918A5DFDF0054BE04 /* star.png */,
@@ -288,6 +291,7 @@
 				449EC29B18A5DFDF0054BE04 /* star.png in Resources */,
 				44F87B3518A6952200CD41C1 /* cavalier5.png in Resources */,
 				449EC26C18A5C22C0054BE04 /* InfoPlist.strings in Resources */,
+				449CC13418A7E620006D88DB /* icon.png in Resources */,
 				449CC12618A6AE40006D88DB /* cavalier0.png in Resources */,
 				449EC27518A5C22C0054BE04 /* Main.storyboard in Resources */,
 				449EC29C18A5DFDF0054BE04 /* star2.png in Resources */,
