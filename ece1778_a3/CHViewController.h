@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <CoreMotion/CoreMotion.h>
 
 @interface CHViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 

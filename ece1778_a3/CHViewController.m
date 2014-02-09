@@ -42,36 +42,14 @@
 }
 
 
-
--(BOOL)checkFileExists:(NSString *)filePath
-{
-    //NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    //NSString* foofile = [documentsPath stringByAppendingPathComponent:@"foo.html"];
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
-    return fileExists;
-}
-
-
-
--(NSDictionary *)getGPScoordinates
-{
-    NSDictionary *gpsCoord = @{@"latitude" : [NSString stringWithFormat:@"%f", 12.035],
-                               @"longitude" : [NSString stringWithFormat:@"%f", 50.621],
-                               };
-    return gpsCoord;
-}
-
-
 -(IBAction)shakeDetected:(id)sender
 {
     NSDictionary *GPScoordinates = [self getGPScoordinates];
     NSString *gpsLat = [GPScoordinates objectForKey:@"latitude"];
     NSString *gpsLon = [GPScoordinates objectForKey:@"longitude"];
     
-    
     Record * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Record"
                                                       inManagedObjectContext:self.managedObjectContext];
-
     double timestamp = [[NSDate date] timeIntervalSince1970];
     newEntry.timestamp = timestamp;
     newEntry.latitude = gpsLat;
@@ -85,8 +63,6 @@
     }
     
     [self takePicture];
-    
-
 }
 
 
@@ -98,10 +74,60 @@
 }
 
 
+-(BOOL)checkFileExists:(NSString *)filePath
+{
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+    return fileExists;
+}
 
 
 
-#pragma mark ---------------------------
+
+
+
+
+
+#pragma mark ---------------------------------------------------------------------------------------------------------------------------------------
+#pragma mark shake functions
+
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (event.type == UIEventTypeMotion && event.subtype == UIEventSubtypeMotionShake) {
+        NSLog(@"Shaking began ....");
+    }
+}
+
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (event.type == UIEventTypeMotion && event.subtype == UIEventSubtypeMotionShake) {
+    	//[[NSNotificationCenter defaultCenter] postNotificationName:@"DeviceShaken" object:self];
+         NSLog(@"Shaking ended");
+        [self shakeDetected:nil];
+    }
+}
+
+
+
+
+
+#pragma mark ---------------------------------------------------------------------------------------------------------------------------------------
+#pragma mark GPS functions
+
+
+-(NSDictionary *)getGPScoordinates
+{
+    NSDictionary *gpsCoord = @{@"latitude" : [NSString stringWithFormat:@"%f", 12.035],
+                               @"longitude" : [NSString stringWithFormat:@"%f", 50.621] };
+    return gpsCoord;
+}
+
+
+
+
+
+
+#pragma mark ---------------------------------------------------------------------------------------------------------------------------------------
 #pragma mark  Camera functions 
 
 
@@ -177,11 +203,6 @@
         NSLog(@"Apparently the file doesn't exisit!");
     }
 }
-
-
-
-
-
 
 
 
