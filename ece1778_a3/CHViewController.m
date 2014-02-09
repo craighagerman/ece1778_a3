@@ -249,6 +249,8 @@
     programmatically it will be taken in portrait but identified as landscape. This makes (1) the display orientation
     wrong and (2) causes the image to be stretched and squashed. The code below is copied from the web discussion
     listed and serves to return a resized, rotated copy of an image to correct for this behavior.
+    see: http://stackoverflow.com/questions/538041/uiimagepickercontroller-camera-preview-is-portrait-in-landscape-app
+    see also:  http://vocaro.com/trevor/blog/2009/10/12/resize-a-uiimage-the-right-way/
 *****************************************************************************************************************  */
 
 // Code from: http://discussions.apple.com/thread.jspa?messageID=7949889
