@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 
-@interface CHViewController : UIViewController
+@interface CHViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 - (IBAction)pushTable:(id)sender;
+-(IBAction)shakeDetected:(id)sender;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
