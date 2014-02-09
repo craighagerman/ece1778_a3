@@ -14,6 +14,10 @@
 
 @property (strong, nonatomic) IBOutlet UIImage *image;
 @property (copy, nonatomic)  NSString *filePath;
+@property (copy, nonatomic) NSString *lattitudeString;
+@property (copy, nonatomic) NSString *longitudeString;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
 -(NSString *)getFilePath:(double)timestamp;
 -(BOOL)checkFileExists:(NSString *)filePath;
 
@@ -29,6 +33,12 @@
     
     CHAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     self.managedObjectContext = appDelegate.managedObjectContext;
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [_locationManager startUpdatingLocation];
+    //_mapView.showsUserLocation = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,16 +54,12 @@
 
 -(IBAction)shakeDetected:(id)sender
 {
-    NSDictionary *GPScoordinates = [self getGPScoordinates];
-    NSString *gpsLat = [GPScoordinates objectForKey:@"latitude"];
-    NSString *gpsLon = [GPScoordinates objectForKey:@"longitude"];
-    
     Record * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Record"
                                                       inManagedObjectContext:self.managedObjectContext];
     double timestamp = [[NSDate date] timeIntervalSince1970];
     newEntry.timestamp = timestamp;
-    newEntry.latitude = gpsLat;
-    newEntry.longitude = gpsLon;
+    newEntry.latitude = self.lattitudeString;
+    newEntry.longitude = self.longitudeString;
     self.filePath = [self getFilePath:timestamp];
     newEntry.imagePath = self.filePath;
     
@@ -88,6 +94,70 @@
 
 
 #pragma mark ---------------------------------------------------------------------------------------------------------------------------------------
+#pragma mark Geo-Location Methods
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation *newLocation = [locations lastObject];
+    self.lattitudeString = [NSString stringWithFormat:@"%g\u00B0", newLocation.coordinate.latitude];
+    self.longitudeString = [NSString stringWithFormat:@"%g\u00B0", newLocation.coordinate.longitude];
+    self.gpsLabel.text = [NSString stringWithFormat:@"%@N  %@W", self.lattitudeString, self.longitudeString];
+    
+    /*
+     NOTE:
+     GPS can be decimal, or degree-minutes-seconds
+     convert with:
+     Decimal Degrees = Degrees + minutes/60 + seconds/3600
+     
+     */
+    
+    
+
+    /*
+    Place *start = [[Place alloc] init]; start.coordinate = newLocation.coordinate; start.title = @"Start Point";
+    start.subtitle = @"This is where we started!";
+    //[_mapView addAnnotation:start];
+    MKCoordinateRegion region;
+    region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 100, 100); [_mapView setRegion:region animated:YES];
+    */
+    
+    
+    if (newLocation.verticalAccuracy < 0 || newLocation.horizontalAccuracy < 0) { // invalid accuracy
+    } return;
+    
+    if (newLocation.horizontalAccuracy > 100 || newLocation.verticalAccuracy > 50) {
+        // accuracy radius is so large, we don't want to use it
+    } return;
+    
+    
+    
+}
+
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSString *errorType = (error.code == kCLErrorDenied) ? @"Access Denied" : @"Unknown Error";
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Error getting Location" message:errorType
+                          delegate:nil
+                          cancelButtonTitle:@"Okay" otherButtonTitles:nil
+                          ];
+    [alert show];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#pragma mark ---------------------------------------------------------------------------------------------------------------------------------------
 #pragma mark shake functions
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
@@ -108,19 +178,6 @@
 }
 
 
-
-
-
-#pragma mark ---------------------------------------------------------------------------------------------------------------------------------------
-#pragma mark GPS functions
-
-
--(NSDictionary *)getGPScoordinates
-{
-    NSDictionary *gpsCoord = @{@"latitude" : [NSString stringWithFormat:@"%f", 12.035],
-                               @"longitude" : [NSString stringWithFormat:@"%f", 50.621] };
-    return gpsCoord;
-}
 
 
 

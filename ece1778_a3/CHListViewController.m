@@ -106,7 +106,7 @@
     UIImage *image = [UIImage imageWithContentsOfFile:record.imagePath];
 
     cell.imageView.image = image;
-    cell.textLabel.text = [NSString stringWithFormat:@"%@,  %@",record.latitude,record.longitude];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@N, %@W",record.latitude,record.longitude];
     return cell;
 }
 
